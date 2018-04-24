@@ -48,7 +48,7 @@ def readData():
             data.append(tempList);
 ##            tempList[0] = User(tempList[0],tempList[1],tempList[2],tempList[3],tempList[4],tempList[5],
 ##                               tempList[6],tempList[7],tempList[8],tempList[9],tempList[10],tempList[11]);
-        print('.....DONE');
+  #      print('.....DONE');
         return data;
 
 
@@ -64,17 +64,36 @@ def writeData(list, data):
 
 
 
-##def editData():
+def createData(Data):
+    with open(FilePath, 'r') as f:
+        r = csv.reader(f, delimiter=',');
+        Questions = next(r);
+        print('Entering New User Data')
+        #print(Questions);
+        #print(len(Questions))
+        tempList = [];
+        for question in Questions:
+            question = (question + ": ")
+            A = input(question)
+            tempList.append(A);
+        print(tempList);
+        writeData(tempList, Data);
+        
+            
+    
 
 
 
 
 def analyzeData(Data):
+    print('TESTING YOU HAVE ACCESS TO CURRENT DATA')
+    showData(Data)
     if(Data[1][4] <  Data[1][5]):
         print('True');
 
 
 def showData(Data):
+    print('\nDISPLAYING CURRENT DATA: \n')
     print('-------------------------------------');  
     print('');
     for row in Data:

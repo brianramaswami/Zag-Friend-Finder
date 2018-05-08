@@ -1,14 +1,15 @@
 import csv
 import random
 
-FilePath = 'data.csv';
+FilePath = './data/data.csv';
+#FilePath = 'data.csv';
 
 
 ##LocalFilePath = './data.csv';
 
 #################
 # USEFUL FUNCTIONAL FUNCTIONS (pun intended)
-def append(lst, elem):
+def Add2List(lst, elem):
     return lst + [elem]
 
 
@@ -48,13 +49,21 @@ def createData(Data, count):
         r = csv.reader(f, delimiter=',');
         Questions = next(r);
         print('Entering New User Data')
-        # print(Questions);
-        # print(len(Questions))
+        #print(Questions);
+        #print(len(Questions))
+        acceptableAnswers = ['1','2','3','4','5','6','7','8','9','10'];
         tempList = [count];
+ #       for question in Questions[:1:1]:
+  #          question = (question + ": ")
+  #          A = input(question); #random.randint(1,10)
+
         for question in Questions:
             question = (question + ": ")
-            A = random.randint(1,10)
-            tempList.append(A);
+            A = input(question); #random.randint(1,10)
+#            while(A not in acceptableAnswers):
+#                A = input(question); #random.randint(1,10)
+            tempList = Add2List(tempList,A);
+            #tempList.append(A);
         algorithm(tempList)
         print(tempList);
         writeData(tempList, Data);
@@ -63,13 +72,14 @@ def algorithm(tempList):
     temp = []
     value = 0
     x = 2
+    #print(len(tempList));
     while (x<25):
         mult = int(tempList[x])
         sum = int(tempList[x+1]) + int(tempList[x+2]) + int(tempList[x+3])
         total = mult*sum
         temp.append(total)
         x = x+4
-    for i in range (0,5):
+    for i in range (0,6):
         value = value + temp[i]
     tempList.append(value)
 
@@ -77,7 +87,7 @@ def algorithm(tempList):
 
 def analyzeData(Data):
     count = (len(Data)) - 1
-    print(count)
+    #print(count)
     showData(Data)
     rowNum = input("\nSelect your line: ")
     rowNum = int(rowNum)-1

@@ -1,4 +1,4 @@
-import ParseData
+from classes import ParseData
 import csv
 import sys
 
@@ -23,7 +23,8 @@ def Main():
             # print('DISPLAYS NESTED LIST');
             ParseData.showData(Data);
         elif (UserAnswer == "2"):
-            count = count + 1
+            count = len(Data) + 1;
+            #count = count + 1
             createData = ParseData.createData(Data, count);
 
         elif (UserAnswer == "3"):

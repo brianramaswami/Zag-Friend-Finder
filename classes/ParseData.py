@@ -1,38 +1,37 @@
-
 import csv
+import random
 
-FilePath = './data/data.csv';
+FilePath = 'data.csv';
+
 
 ##LocalFilePath = './data.csv';
 
 #################
-#USEFUL FUNCTIONAL FUNCTIONS (pun intended)
+# USEFUL FUNCTIONAL FUNCTIONS (pun intended)
 def append(lst, elem):
     return lst + [elem]
+
 
 def extend(lst1, lst2):
     return lst1 + lst2
 
+
 #################
 
 def readData():
-
-
     data = [];
-    
 
     with open(FilePath, 'r') as f:
         r = csv.reader(f, delimiter=',');
         row1 = next(r);
-        
+
         for row in r:
             tempList = row;
             data.append(tempList);
-##            tempList[0] = User(tempList[0],tempList[1],tempList[2],tempList[3],tempList[4],tempList[5],
-##                               tempList[6],tempList[7],tempList[8],tempList[9],tempList[10],tempList[11]);
-  #      print('.....DONE');
+        ##            tempList[0] = User(tempList[0],tempList[1],tempList[2],tempList[3],tempList[4],tempList[5],
+        ##                               tempList[6],tempList[7],tempList[8],tempList[9],tempList[10],tempList[11]);
+        #      print('.....DONE');
         return data;
-
 
 
 def writeData(list, data):
@@ -40,88 +39,65 @@ def writeData(list, data):
         w = csv.writer(f, delimiter=',');
         w.writerow(list);
 
-        #UPDATES DATA LIST RE-READS CSV NOT APPENDING LIST
+        # UPDATES DATA LIST RE-READS CSV NOT APPENDING LIST
         data = readData();
-    return data;
 
 
-
-def createData(Data):
+def createData(Data, count):
     with open(FilePath, 'r') as f:
         r = csv.reader(f, delimiter=',');
         Questions = next(r);
         print('Entering New User Data')
-        #print(Questions);
-        #print(len(Questions))
-        tempList = [];
+        # print(Questions);
+        # print(len(Questions))
+        tempList = [count];
         for question in Questions:
             question = (question + ": ")
-            A = input(question)
+            A = input(question) #random.randint(1,10)
             tempList.append(A);
+        algorithm(tempList)
         print(tempList);
         writeData(tempList, Data);
-        
-            
-    
 
+def algorithm(tempList):
+    temp = []
+    value = 0
+    x = 2
+    while (x<21):
+        mult = int(tempList[x])
+        sum = int(tempList[x+1]) + int(tempList[x+2]) + int(tempList[x+3])
+        total = mult*sum
+        temp.append(total)
+        x = x+4
+    for i in range (0,5):
+        value = value + temp[i]
+    tempList.append(value)
 
 
 
 def analyzeData(Data):
-    print('TESTING YOU HAVE ACCESS TO CURRENT DATA')
+    count = 9
     showData(Data)
-    if(Data[1][4] <  Data[1][5]):
-        print('True');
+    rowNum = input("\nSelect your name: ")
+    rowNum = int(rowNum)-1
+    person = Data[rowNum][1]
+    friend = 'Friend'
+    close = 10000000
+    while (count>=0):
+        temp = abs(int(Data[rowNum][22])-int(Data[count][22]))
+        if(temp < close and rowNum != count):
+            close = abs(int(Data[rowNum][22])-int(Data[count][22]))
+            friend = Data[count][1]
+        count = count -1
+    print(person + " - The person you're most compatiable with is: " + friend)
 
 
 def showData(Data):
     print('\nDISPLAYING CURRENT DATA: \n')
-    print('-------------------------------------');  
+    print('-------------------------------------');
     print('');
     for row in Data:
         print(row);
         print('');
-    print('-------------------------------------');    
-
-
-
-
-##def Main():
-##    Data = readData();
-##    showData(Data);
-##    ##newEntry = ["Spikes long lost girlfriend The Poodle","Spikes long lost girlfriend", "The Poodle", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A10", "A11"];
-##    ##writeData(newEntry);
-####    analyzeData(Data);
-##
-##
-##
-##
-##Main();
-
-'''
-#CREATING A CLASS USER FOR EVERY ENTRY
-
-class User:
-    def _init_(self,full_name,first_name, last_name, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11):
-        self.full_name = full_name;
-        self.first_name = first_name;
-        self.last_name = last_name;
-        self.A1 = A1;
-        self.A2 = A2;
-        self.A3 = A3;
-        self.A4 = A4;
-        self.A5 = A5;
-        self.A6 = A6;
-        self.A7 = A7;
-        self.A8 = A8;
-        self.A9 = A9;
-        self.A10 = A10;
-        self.A11 = A11;
-
-    def displayUser(self):
-        print(self.full_name, '', self.first_name, '', self.last_name, '', self.A1, '', self.A2, '', self.A3, ''
-              , self.A4, '', self.A5, '', self.A6, '', self.A7, '', self.A8, '', self.A9, '', self.A10,
-              '', self.A11);
-        
-'''        
+    print('-------------------------------------');
 

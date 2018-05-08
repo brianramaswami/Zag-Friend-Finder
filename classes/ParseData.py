@@ -53,7 +53,7 @@ def createData(Data, count):
         tempList = [count];
         for question in Questions:
             question = (question + ": ")
-            A = input(question) #random.randint(1,10)
+            A = random.randint(1,10)
             tempList.append(A);
         algorithm(tempList)
         print(tempList);
@@ -76,7 +76,8 @@ def algorithm(tempList):
 
 
 def analyzeData(Data):
-    count = 9
+    count = (len(Data)) - 1
+    print(count)
     showData(Data)
     rowNum = input("\nSelect your name: ")
     rowNum = int(rowNum)-1

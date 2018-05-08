@@ -27,7 +27,6 @@ def Main():
             createData = ParseData.createData(Data, count);
 
         elif (UserAnswer == "3"):
-            # MATT DO SOMETHING HERE
             ParseData.analyzeData(Data);
 
         elif (UserAnswer == "4"):

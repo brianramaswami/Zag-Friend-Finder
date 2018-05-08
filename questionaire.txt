@@ -1,0 +1,27 @@
+Enter a response from 1 - 10 where 1 is not important and 10 is very important,
+or 1 is very unlikely and 10 is highly likely.
+
+
+"How important is the outdoors to you?","How much do you enjoy camping?","How much do you enjoy hiking?",
+"How likely are you to go on an outdoors trip on the weekend?" 
+
+
+"How important is food in your life?", "How much do you enjoy cooking?", "How much do you enjoy eating out?", 
+"How likely are you to try new cuisines?"
+
+
+"How important is travel to you?","How much do you enjoy car rides?","How likely are you to relocate in the name of advdenture?",
+"How thrilled do you get about new experiences?"
+
+
+"How important is faith to you?","How important is worship to your spiritual life?", "How important is it to you to be able to pray with your friends?",
+"How comfortable are you with sharing and talking about your faith?"
+
+
+"How important chill time to you?","How likely are you to excerise for self-care?", "How likely are you binge watch an entire season?", 
+""
+
+
+
+"How important is music in your life?","How likely are you to use music to relax?", "Are you open to new music/musical experiences?",
+"Is music one of your main forms of expression?"

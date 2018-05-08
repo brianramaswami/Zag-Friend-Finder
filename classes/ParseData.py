@@ -1,37 +1,19 @@
+
 import csv
 
 FilePath = './data/data.csv';
+
 ##LocalFilePath = './data.csv';
 
-'''
-#CREATING A CLASS USER FOR EVERY ENTRY
+#################
+#USEFUL FUNCTIONAL FUNCTIONS (pun intended)
+def append(lst, elem):
+    return lst + [elem]
 
-class User:
-    def _init_(self,full_name,first_name, last_name, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11):
-        self.full_name = full_name;
-        self.first_name = first_name;
-        self.last_name = last_name;
-        self.A1 = A1;
-        self.A2 = A2;
-        self.A3 = A3;
-        self.A4 = A4;
-        self.A5 = A5;
-        self.A6 = A6;
-        self.A7 = A7;
-        self.A8 = A8;
-        self.A9 = A9;
-        self.A10 = A10;
-        self.A11 = A11;
+def extend(lst1, lst2):
+    return lst1 + lst2
 
-    def displayUser(self):
-        print(self.full_name, '', self.first_name, '', self.last_name, '', self.A1, '', self.A2, '', self.A3, ''
-              , self.A4, '', self.A5, '', self.A6, '', self.A7, '', self.A8, '', self.A9, '', self.A10,
-              '', self.A11);
-        
-'''        
-
-
-
+#################
 
 def readData():
 
@@ -115,3 +97,31 @@ def showData(Data):
 ##
 ##
 ##Main();
+
+'''
+#CREATING A CLASS USER FOR EVERY ENTRY
+
+class User:
+    def _init_(self,full_name,first_name, last_name, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11):
+        self.full_name = full_name;
+        self.first_name = first_name;
+        self.last_name = last_name;
+        self.A1 = A1;
+        self.A2 = A2;
+        self.A3 = A3;
+        self.A4 = A4;
+        self.A5 = A5;
+        self.A6 = A6;
+        self.A7 = A7;
+        self.A8 = A8;
+        self.A9 = A9;
+        self.A10 = A10;
+        self.A11 = A11;
+
+    def displayUser(self):
+        print(self.full_name, '', self.first_name, '', self.last_name, '', self.A1, '', self.A2, '', self.A3, ''
+              , self.A4, '', self.A5, '', self.A6, '', self.A7, '', self.A8, '', self.A9, '', self.A10,
+              '', self.A11);
+        
+'''        
+

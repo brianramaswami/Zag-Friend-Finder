@@ -63,7 +63,7 @@ def algorithm(tempList):
     temp = []
     value = 0
     x = 2
-    while (x<21):
+    while (x<25):
         mult = int(tempList[x])
         sum = int(tempList[x+1]) + int(tempList[x+2]) + int(tempList[x+3])
         total = mult*sum
@@ -79,15 +79,15 @@ def analyzeData(Data):
     count = (len(Data)) - 1
     print(count)
     showData(Data)
-    rowNum = input("\nSelect your name: ")
+    rowNum = input("\nSelect your line: ")
     rowNum = int(rowNum)-1
     person = Data[rowNum][1]
     friend = 'Friend'
     close = 10000000
     while (count>=0):
-        temp = abs(int(Data[rowNum][22])-int(Data[count][22]))
+        temp = abs(int(Data[rowNum][26])-int(Data[count][26]))
         if(temp < close and rowNum != count):
-            close = abs(int(Data[rowNum][22])-int(Data[count][22]))
+            close = abs(int(Data[rowNum][26])-int(Data[count][26]))
             friend = Data[count][1]
         count = count -1
     print(person + " - The person you're most compatiable with is: " + friend)
